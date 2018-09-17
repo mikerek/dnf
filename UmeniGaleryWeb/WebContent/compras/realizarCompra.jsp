@@ -18,7 +18,7 @@
 		Favor de llenar los detalles de la compra realizada
 	</p>
 	<form action="RealizarCompraServlet">
-		<table class="compra">
+		<table class="compraventa">
 			<tr>
 				<td>
 					<label for="compra">Costo de la compra:</label>

@@ -7,6 +7,32 @@
 <title>Revisión de Compras - Umeni</title>
 </head>
 <body>
-
+	<%@ include file="../header.jsp" %>
+	
+	<h1>Selecciona los filtros de búsqueda</h1>
+	<form action="ReporteCompletoServlet">
+		<input type="submit" value="TODAS las compras" />
+	</form>
+	<hr>
+	<form action="ReporteFiltradoComprasServlet">
+		<table>
+			<tr>
+				<td>
+					<label for="compraDesde">Fechas desde - hasta</label>
+				</td>
+				<td>
+					<input type="date" id="compraDesde" name="compraDesde" />
+				</td>
+				<td>
+					<input type="date" id="compraHasta" name="compraHasta" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>

@@ -21,11 +21,8 @@ public class ObtenUsuariosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession( );
-		UsuarioController controlador = new UsuarioController();
-		ArrayList< UsuarioBean > listaUsuarios = controlador.getAllUsers();
+		ArrayList< UsuarioBean > listaUsuarios = UsuarioController.getAllUsers();
 		session.setAttribute( "listaUsuarios" , listaUsuarios );
-		
-		System.out.println("Ya llamamos al servicio largo: " + listaUsuarios.size() );
 		
 	}
 }

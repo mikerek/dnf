@@ -21,12 +21,12 @@
 		<table class="compraventa">
 			<tr>
 				<td>
-					<label for="compra">Costo de la compra:</label>
+					<label for="producto">Escribe el identificador del Producto:</label>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input name="compra" id="compra" type="text" value="0.00"/>
+					<input name="productoVenta" id="productoVenta" type="text" />
 				</td>
 			</tr>
 			<tr>

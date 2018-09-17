@@ -1,0 +1,50 @@
+@charset "UTF-8";
+p.titulos1 {
+    font-family: "Verdana";
+    font-size:24px; 
+    align: center;
+}
+
+p.titulos2 {
+	font-family: "Verdana";
+    font-size:18px;
+}
+
+p.general {
+	font-family: "Verdana";
+	font-size: 12px;
+	
+}
+
+p.minimo {
+	font-family: "Verdana";
+	font-size: 12px;
+	
+}
+
+p.menu {
+	font-family: "Verdana";
+	font-size: 15px;
+	text-align: center;
+}
+
+p.menuOpciones {
+	font-family: "Verdana";
+	font-size: 14px;
+	text-align: center;
+}
+
+hr.mediaHr {
+	width: "90%";
+}
+
+table.compra {
+	align-content: center;
+	font-family: Verdana;
+	font-size: 16px;
+	font-style: bold;
+	width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+}
+

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script language="javascript" type="text/javascript" src="../js/ajaxFunctions.js"></script>
 <title>Revisión de Compras - Umeni</title>
 </head>
 <body>
@@ -29,7 +30,18 @@
 			</tr>
 			<tr>
 				<td>
-					
+					<label for="">Escribe el id del producto a filtrar</label>
+				</td>
+				<td colspan="2">
+					<input type="text" name="idProducto" id="idProducto" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="notificationDivFather" style="display: none" align="center">
+					<div id="notificationDiv">
+					</div>
+				</div>
 				</td>
 			</tr>
 		</table>

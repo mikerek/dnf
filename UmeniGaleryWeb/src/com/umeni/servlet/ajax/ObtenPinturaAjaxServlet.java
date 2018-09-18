@@ -7,34 +7,25 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.umeni.controller.LoginController;
+import com.umeni.controller.PinturaController;
 
 public class ObtenPinturaAjaxServlet {
-	
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String idProducto = request.getParameter( "idProducto" );
-		PrintWriter out = response.getWriter();
-		
-		if ( LoginController.emailFormationEvaluation( loginId ) ) {
-			
-			if( LoginController.existingUser( loginId ) ) {
-				
-				out.print( "<font color='green'>El usuario existe en la base de datos!</font>" );
-				
-			}
-			else {
-				
-				out.print( "<font color='red'>El NO usuario existe en la base de datos!</font>" );
-			
-			}
-			
-		}
-		else {
-			
-			out.print( "<font color='red'>Lo que acabas de ingresar NO tiene formacion correcta; seguro que es un email?</font>" );
-			
-		}
-	}
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String nombrePintura = request.getParameter("nombrePintura");
+		PrintWriter out = response.getWriter();
+
+		if (PinturaController.obtenPintura( nombrePintura ) ) {
+
+			out.print("<font color='green'>Producto <b>" + nombrePintura + "</b> encontrado!</font>");
+
+		} else {
+
+			out.print("<font color='red'>Producto NO encontrado</font>");
+
+		}
+
+	}
 }

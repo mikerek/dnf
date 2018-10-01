@@ -46,7 +46,7 @@ function obtenerUsuarios() {
 
 }
 
-function obtenerPintura( nombrePintura ) {
+function obtenerPinturaAjax( nombrePintura ) {
 	
 	var xmlhttp;
 	if (window.XMLHttpRequest) {

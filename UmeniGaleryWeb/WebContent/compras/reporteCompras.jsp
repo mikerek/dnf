@@ -33,7 +33,7 @@
 					<label for="">Escribe el id del producto a filtrar</label>
 				</td>
 				<td colspan="2">
-					<input type="text" name="idProducto" id="idProducto" />
+					<input type="text" name="nombreProducto" id="nombreProducto" onchange="javascript:obtenerPinturaAjax( this.value )"/>
 				</td>
 			</tr>
 			<tr>
@@ -42,6 +42,11 @@
 					<div id="notificationDiv">
 					</div>
 				</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<input type="submit" value="Buscar"/>
 				</td>
 			</tr>
 		</table>

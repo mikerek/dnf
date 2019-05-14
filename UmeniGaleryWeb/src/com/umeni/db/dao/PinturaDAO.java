@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.umeni.db.bean.PinturaBean;
+import com.umeni.db.bean.ProductoBean;
 import com.umeni.db.connection.ConexBD;
 
 public class PinturaDAO {
@@ -40,10 +40,10 @@ public class PinturaDAO {
 	}
 	
 	
-	public static ArrayList< PinturaBean > obtenerPinturas( ) {
+	public static ArrayList< ProductoBean > obtenerPinturas( ) {
 		
 		String query = "SELECT id_producto, nombre, descripcion, precio, categoria, detalles, imagen, imagen2, imagen3 FROM pintura";
-		ArrayList< PinturaBean > listaPinturas = new ArrayList< PinturaBean >();
+		ArrayList< ProductoBean > listaPinturas = new ArrayList< ProductoBean >();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Connection con = ConexBD.getConnection();
@@ -53,7 +53,7 @@ public class PinturaDAO {
 			rs = ps.executeQuery();
 			while ( rs.next() ) {
 				
-				PinturaBean bean = new PinturaBean();
+				ProductoBean bean = new ProductoBean();
 				bean.setId_producto( rs.getInt( "id_producto" ) );
 				bean.setNombre( rs.getString( "nombre" ) );
 				bean.setDescripcion( rs.getString( "descripcion" ) );

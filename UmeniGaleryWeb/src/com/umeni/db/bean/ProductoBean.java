@@ -1,6 +1,6 @@
 package com.umeni.db.bean;
 
-public class PinturaBean {
+public class ProductoBean {
 	
 	private int id_producto;
 	private String nombre;
@@ -12,7 +12,7 @@ public class PinturaBean {
 	private String imagen2;
 	private String imagen3;
 	
-	public PinturaBean() {
+	public ProductoBean() {
 	}
 
 	public int getId_producto() {
@@ -87,7 +87,7 @@ public class PinturaBean {
 		this.imagen3 = imagen3;
 	}
 
-	public PinturaBean(int id_producto, String nombre, String descripcion, float precio, int id_categoria,
+	public ProductoBean(int id_producto, String nombre, String descripcion, float precio, int id_categoria,
 			String detalles, String imagen, String imagen2, String imagen3) {
 		super();
 		this.id_producto = id_producto;

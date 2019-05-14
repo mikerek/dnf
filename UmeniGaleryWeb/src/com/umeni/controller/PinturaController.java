@@ -2,7 +2,7 @@ package com.umeni.controller;
 
 import java.util.ArrayList;
 
-import com.umeni.db.bean.PinturaBean;
+import com.umeni.db.bean.ProductoBean;
 import com.umeni.db.dao.PinturaDAO;
 
 public class PinturaController {
@@ -15,9 +15,9 @@ public class PinturaController {
 		
 	}
 	
-	public static ArrayList< PinturaBean > obtenerPinturas() {
+	public static ArrayList< ProductoBean > obtenerPinturas() {
 		
-		ArrayList< PinturaBean > listaPinturas = new ArrayList < PinturaBean >();
+		ArrayList< ProductoBean > listaPinturas = new ArrayList < ProductoBean >();
 		listaPinturas = PinturaDAO.obtenerPinturas();
 		return listaPinturas;
 		

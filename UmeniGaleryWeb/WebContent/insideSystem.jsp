@@ -32,7 +32,7 @@
 						* Revisa las opcines del menú superior de acuerdo a los permisos de tu usuario *
 						<br>
 						<br>
-						<img alt="Umeni Galeria" src="img/logoUmeni.png" width="530" height="300">
+						<img alt="Umeni Galeria" src="img/logoUmeni.svg" width="530" height="300">
 					</p>
 				</p>
 			</td>

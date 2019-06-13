@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import com.umeni.db.bean.ProductoBean;
 import com.umeni.db.connection.ConexBD;
 
-public class PinturaDAO {
+public class ProductoDAO {
 	
 	public static boolean existeProducto( String idProducto ) {
 		
@@ -40,7 +40,7 @@ public class PinturaDAO {
 	}
 	
 	
-	public static ArrayList< ProductoBean > obtenerPinturas( ) {
+	public static ArrayList< ProductoBean > obtenerProductos( ) {
 		
 		String query = "SELECT id_producto, nombre, descripcion, precio, categoria, detalles, imagen, imagen2, imagen3 FROM pintura";
 		ArrayList< ProductoBean > listaPinturas = new ArrayList< ProductoBean >();

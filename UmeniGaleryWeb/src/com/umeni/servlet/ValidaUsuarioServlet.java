@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.umeni.controller.LoginController;
+import com.umeni.controller.PinturaController;
 import com.umeni.controller.RolController;
 import com.umeni.controller.UsuarioController;
 
@@ -31,6 +32,7 @@ public class ValidaUsuarioServlet extends HttpServlet {
 				if( LoginController.correctPassword( loginId , passwd ) ) {
 					
 					session.setAttribute( "beanUsuario" , LoginController.getAllDataFromUser( loginId ) );
+					session.setAttribute( "listaMedidaPinturas", PinturaController.obtenerMedidasDeProductos() );
 					session.setAttribute( "listBeanRol", RolController.getAllRoles() );
 					session.setAttribute( "menu" , LoginController.menuGenerator( loginId ) );
 					session.setAttribute( "listaUsuarios" , UsuarioController.getAllUsers() );

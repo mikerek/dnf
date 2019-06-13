@@ -48,3 +48,25 @@ table.compraventa {
     margin-right:15%;
 }
 
+p.notaAlPie {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 10px;
+	letter-spacing: 0.8px;
+	word-spacing: 2px;
+	color: #969696;
+	font-weight: normal;
+	text-decoration: none;
+	font-style: italic;
+	font-variant: normal;
+	text-transform: none;
+}
+
+hr.inputForm { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}

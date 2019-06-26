@@ -1,5 +1,5 @@
-<div id="container">
+<div class="container" id="regresarPagina">
 	<p>
-		Si deseas regresar a la página anterior solo da click <a href="javascript:history.back()">aquí</a>
+		<a href="javascript:history.back()"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>Regresar
 	</p>
 </div>

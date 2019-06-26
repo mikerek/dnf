@@ -22,34 +22,34 @@
 		}
 	%>
 	
-	<h1 align="center">Llena los campos del usuario nuevo del sistema</h1>
+	<h2 align="center">Llena los campos del usuario nuevo del sistema</h1>
 	<br>	
 	<hr>
-	<section id="formaAltaUsuario">
+	<section id="formasUsuario">
 		<div class="container">
 	        <form action="../NewUserServlet" method="post" onsubmit="javascript:return validaNuevoUsuario();">
 	            <div class="row">
-	                <div class="col col-md-4">
+	                <div class="col col-md-4 mx-auto">
 	                    <label for="nombreUsuario">Nombre de Usuario</label>
-	                    <input type="text" class="form-control" id="nombreUsuario" placeholder="Juan Perez">
+	                    <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" placeholder="Juan Perez">
 	                </div>
                 </div>
                 <div class="row">
-	                <div class="col col-md-4">
+	                <div class="col col-md-4 mx-auto">
 	                    <label for="emailUsuario">Email del nuevo Usuario</label>
-	                    <input type="email" class="form-control" id="emailUsuario" placeholder="micorreo@gmail.com">
+	                    <input type="email" class="form-control" name="emailUsuario" id="emailUsuario" placeholder="micorreo@gmail.com">
 	                </div>
 	            </div>
 	            <div class="row">
-		            <div class="col col-md-4">
+		            <div class="col col-md-4 mx-auto">
 		                <label for="passwordUsuario">Password</label>
-		                <input type="password" class="form-control" id="passwordUsuario" placeholder="123qweASD">
+		                <input type="password" class="form-control" name="passwordUsuario" id="passwordUsuario" placeholder="123qweASD">
 		            </div>
 		        </div>
                 <div class="row">
-		            <div class="col col-md-4">
+		            <div class="col col-md-4 mx-auto">
 	                    <label for="rolIdUsuario">Rol de Usuario</label>
-	                    <select id="rolIdUsuario" class="form-control">
+	                    <select id="rolIdUsuario" name="rolIdUsuario" class="form-control">
 	                        <option value="0">- selecciona -</option>
 							<% 
 							for ( int i=0; i< listRolBean.size() ; i++ ){
@@ -57,13 +57,13 @@
 								int id_rol = listRolBean.get( i ).getId_rol();
 								String nombreRol = listRolBean.get( i ).getNombre(); 
 							%>
-							<option value= "<%= id_rol %>"><%= nombreRol %></option>
+							<option value="<%= id_rol %>"><%= nombreRol %></option>
 							<% } %>
 	                    </select>
 	                </div>
                 </div>
                 <div class="row">
-                	<div class="col col-md-4">
+                	<div class="col col-md-4 mx-auto">
 	            		<button type="submit" class="btn btn-outline-info btn-block">Agregar usuario</button>
 	            	</div>
 	            </div>

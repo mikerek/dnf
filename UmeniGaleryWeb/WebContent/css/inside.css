@@ -5,7 +5,7 @@ body, html {
 }
 
 @media (max-width:768px) {
-    #formaAltaUsuario{
+    #formasUsuario{
         text-align: center;
     }
 }
@@ -28,12 +28,27 @@ body, html {
 	font-family: 'Roboto Mono', monospace;
 }
 
-#formaAltaUsuario {
+#formasUsuario {
 	align-items: center;
 }
 
-#formaAltaUsuario .btn-secondary {
+#formasUsuario .btn-outline-info:hover {
     color: #fff;
     background-color: grey;
     border-color: black;
+}
+
+#formasUsuario .btn-outline-info {
+    color: grey;
+    border-color: black;
+}
+
+#formasUsuario .ml-auto, .mx-auto {
+    margin-left: auto!important;
+    padding: 12px;
+}
+
+#regresarPagina .fa {
+	color: black;
+	padding: 10px;
 }

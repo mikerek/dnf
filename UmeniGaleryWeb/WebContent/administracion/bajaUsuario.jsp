@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList"%>
+	<%@page import="java.util.ArrayList"%>
 <%@page import="com.umeni.db.bean.UsuarioBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -18,75 +18,36 @@
 	%>
 	<h1 align="center">Selecciona el email del usuario a eliminar</h1>
 	<br>
-	<form action="../EliminarUsuarioServlet" method="post">
-		<table align="center">
-			<tr>
-				<td align="center">
-					Selecciona el usuario a eliminar:
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<select id="idUsuario" name="idUsuario">
-						<option value="0">-Usuarios-</option>
-						<%
-						for ( i=0; i< listaUsuarios.size() ; i++ ){
-						
-							int idUsuario = listaUsuarios.get(i).getId_Usuario();
-							String emailUsuario = listaUsuarios.get(i).getEmail();
-							String nombreUsuario = listaUsuarios.get(i).getNombre();
-						
-						%>
-						<option value="<%=idUsuario %>"><%=emailUsuario  + " - " +nombreUsuario%></option>
-						<%
-						}
-						%>
-					</select>
-				</td>
-			</tr>
-			<!-- 
-			<tr>
-				<td>
-					Nombre:
-				</td>
-				<td>
-					<input type="text" name="emailUsuario" id="emailUsuario" readonly="readonly"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Password:
-				</td>
-				<td>
-					<input type="password" name="passwordUsuario" id="passwordUsuario" readonly="readonly"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Rol:
-				</td>
-				<td>
-					<input type="text" name="rolUsuario" id="rolUsuario" readonly="readonly" /><%=usuarioBean.getId_Rol() %>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					&nbsp;
-				</td>
-			</tr>
-			 -->
-			 <tr>
-			 	<td>
-			 		&nbsp;
-			 	</td>
-			 </tr>
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" value="Eliminar Usuario" />
-				</td>
-			</tr>
-		</table>
-	</form>
+	<section id="formasUsuario">
+		<div class="container">
+			<form action="../EliminarUsuarioServlet" method="post">
+				 <div class="row">
+		            <div class="col col-md-4 mx-auto">
+	                    <label for="rolIdUsuario">Usuario a eliminar:</label>
+	                    <select id="idUsuario" name="idUsuario" class="form-control">
+	                       <%
+								for ( i=0; i< listaUsuarios.size() ; i++ ){
+								
+									int idUsuario = listaUsuarios.get(i).getId_Usuario();
+									String emailUsuario = listaUsuarios.get(i).getEmail();
+									String nombreUsuario = listaUsuarios.get(i).getNombre();
+								
+								%>
+								<option value="<%=idUsuario %>"><%=emailUsuario  + " - " +nombreUsuario%></option>
+								<%
+								}
+							%>
+	                    </select>
+	                </div>
+                </div>
+                <div class="row">
+                	<div class="col col-md-4 mx-auto">
+	            		<button type="submit" class="btn btn-outline-info btn-block">Eliminar Usuario</button>
+	            	</div>
+	            </div>
+			</div>
+		</form>
+	</section>
 	<%@ include file="../jQueryFooter.jsp"%>
 	<%@ include file="../regresarPagina.jsp" %>
 	<%@ include file="../copyright.jsp"%>

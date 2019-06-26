@@ -5,6 +5,9 @@
 <head>
 	<%@ include file="../metaData.jsp" %>	
 	<title>Cambios en el Usuario</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	
 </head>
 <body>
 	<%@ include file="../header.jsp" %>	
@@ -24,11 +27,11 @@
 	<br>
 	<section id="formasUsuario">
 		<div class="container">
-			<form action="../UsuarioDataServlet" method="post">
+			<form action="#" method="GET">
 				 <div class="row">
 		            <div class="col col-md-4 mx-auto">
 	                    <label for="rolIdUsuario">Selecciona el usuario:</label>
-	                    <select id="nombreUsuario" name="nombreUsuario" class="form-control" onchange="javascript:submit();">
+	                    <select id="nombreUsuario" name="nombreUsuario" class="form-control"  >
 	                       <%
 								for ( i=0; i< listaUsuarios.size() ; i++ ){
 								
@@ -37,19 +40,42 @@
 									String nombreUsuario = listaUsuarios.get(i).getNombre();
 								
 								%>
-								<option value="<%=nombreUsuario %>"><%=emailUsuario  + " - " +nombreUsuario%></option>
+								<option value="<%=idUsuario %>" ><%=emailUsuario  + " - " +nombreUsuario%></option>
 								<%
 								}
 							%>
 	                    </select>
+	                    
 	                </div>
                 </div>
-                <!-- >div class="row">
+                <div id="replace"></div>
+                
+                <div id="showsData" hidden></div>
+                <!--
+                <div class="row">
                 	<div class="col col-md-4 mx-auto">
 	            		<button type="submit" class="btn btn-outline-info btn-block"> Usuario</button>
 	            	</div>
-	            </div-->
+	            </div>
+	            -->
+	            </form>
 			</div>
+			
+			</section>
+		<script type="text/javascript">
+		$('#nombreUsuario').change(function a(b){
+			var str = "";
+			$('#nombreUsuario option:selected' ).each(function() {
+		      str += $( this ).text() + " ";
+		    });
+		    $( '#replace' ).text( str );
+		 });
+		
+		 
+
+		</script>	
+			
+			<!--
 		</form>
 		<div class="container">
 			<form action="../CambiaUsuarioServlet" method="post" onsubmit="javascript:return validaNuevoUsuario();">
@@ -94,7 +120,10 @@
 	            </div>
 	        </form>
 		</div>
+		-->
 	</section>
+	
+	
 	<%@ include file="../jQueryFooter.jsp"%>
 	<%@ include file="../regresarPagina.jsp" %>
 	<%@ include file="../copyright.jsp"%>

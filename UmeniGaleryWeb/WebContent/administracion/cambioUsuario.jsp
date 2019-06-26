@@ -9,6 +9,43 @@
 <body>
 	<%@ include file="../header.jsp" %>	
 	<hr>
+	<%
+		usuarioBean = (UsuarioBean) session.getAttribute("beanUsuario");
+		ArrayList< UsuarioBean > listaUsuarios = (ArrayList< UsuarioBean >) session.getAttribute( "listaUsuarios" );
+		int i;
+	%>
+	<h2 align="center">Selecciona el email del usuario para modificar</h2>
+	<br>
+	<section id="formasUsuario">
+		<div class="container">
+			<form action="../EliminarUsuarioServlet" method="post">
+				 <div class="row">
+		            <div class="col col-md-4 mx-auto">
+	                    <label for="rolIdUsuario">Usuario a eliminar:</label>
+	                    <select id="idUsuario" name="idUsuario" class="form-control">
+	                       <%
+								for ( i=0; i< listaUsuarios.size() ; i++ ){
+								
+									int idUsuario = listaUsuarios.get(i).getId_Usuario();
+									String emailUsuario = listaUsuarios.get(i).getEmail();
+									String nombreUsuario = listaUsuarios.get(i).getNombre();
+								
+								%>
+								<option value="<%=idUsuario %>"><%=emailUsuario  + " - " +nombreUsuario%></option>
+								<%
+								}
+							%>
+	                    </select>
+	                </div>
+                </div>
+                <div class="row">
+                	<div class="col col-md-4 mx-auto">
+	            		<button type="submit" class="btn btn-outline-info btn-block">Eliminar Usuario</button>
+	            	</div>
+	            </div>
+			</div>
+		</form>
+	</section>
 	<%@ include file="../jQueryFooter.jsp"%>
 	<%@ include file="../regresarPagina.jsp" %>
 	<%@ include file="../copyright.jsp"%>

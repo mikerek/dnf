@@ -22,7 +22,7 @@
 		}
 	%>
 	
-	<h2 align="center">Llena los campos del usuario nuevo del sistema</h1>
+	<h2 align="center">Llena los campos del usuario nuevo del sistema</h2>
 	<br>	
 	<hr>
 	<section id="formasUsuario">

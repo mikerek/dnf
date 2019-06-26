@@ -16,7 +16,7 @@
 		ArrayList< UsuarioBean > listaUsuarios = (ArrayList< UsuarioBean >) session.getAttribute( "listaUsuarios" );
 		int i;
 	%>
-	<h1 align="center">Selecciona el email del usuario a eliminar</h1>
+	<h2 align="center">Selecciona el email del usuario a eliminar</h2>
 	<br>
 	<section id="formasUsuario">
 		<div class="container">

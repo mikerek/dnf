@@ -30,4 +30,12 @@ public class UsuarioController {
 		return eliminado;
 		
 	}
+	
+	public static boolean changeUser( UsuarioBean bean ) {
+		
+		boolean cambiado = false;
+		cambiado = UsuarioDAO.changeUser( bean );
+		return cambiado;
+		
+	}
 }

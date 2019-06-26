@@ -187,4 +187,28 @@ public class UsuarioDAO {
 		
 	}
 	
+	public static boolean changeUser( UsuarioBean bean ){
+		
+		boolean updateFlag = false;
+		String query="UPDATE usuario SET nombre = ?, password = ?, email = ?, id_rol = ? WHERE id_usuario = ?";
+		PreparedStatement ps = null;
+		Connection con = ConexBD.getConnection();
+		try {
+			ps = con.prepareStatement( query );
+			ps.setString( 1, bean.getNombre() );
+			ps.setString( 2 , HashEncryption.md5Java( bean.getPassword() ) );
+			ps.setString( 3 , bean.getEmail() );
+			ps.setInt( 4 , bean.getId_Rol() );
+			updateFlag = (ps.executeUpdate() == 1 ) ? true : false;
+			
+			con.close();
+		}
+		catch ( SQLException ex ) {
+			
+			ex.printStackTrace();
+			
+		}
+		return updateFlag;
+	}
+	
 }

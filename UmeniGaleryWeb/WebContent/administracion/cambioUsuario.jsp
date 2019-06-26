@@ -18,11 +18,11 @@
 	<br>
 	<section id="formasUsuario">
 		<div class="container">
-			<form action="../EliminarUsuarioServlet" method="post">
+			<form action="../UsuarioDataServlet" method="post">
 				 <div class="row">
 		            <div class="col col-md-4 mx-auto">
-	                    <label for="rolIdUsuario">Usuario a eliminar:</label>
-	                    <select id="idUsuario" name="idUsuario" class="form-control">
+	                    <label for="rolIdUsuario">Selecciona el usuario:</label>
+	                    <select id="nombreUsuario" name="nombreUsuario" class="form-control" onchange="javascript:submit();">
 	                       <%
 								for ( i=0; i< listaUsuarios.size() ; i++ ){
 								
@@ -31,18 +31,18 @@
 									String nombreUsuario = listaUsuarios.get(i).getNombre();
 								
 								%>
-								<option value="<%=idUsuario %>"><%=emailUsuario  + " - " +nombreUsuario%></option>
+								<option value="<%=nombreUsuario %>"><%=emailUsuario  + " - " +nombreUsuario%></option>
 								<%
 								}
 							%>
 	                    </select>
 	                </div>
                 </div>
-                <div class="row">
+                <!-- >div class="row">
                 	<div class="col col-md-4 mx-auto">
-	            		<button type="submit" class="btn btn-outline-info btn-block">Eliminar Usuario</button>
+	            		<button type="submit" class="btn btn-outline-info btn-block"> Usuario</button>
 	            	</div>
-	            </div>
+	            </div-->
 			</div>
 		</form>
 	</section>

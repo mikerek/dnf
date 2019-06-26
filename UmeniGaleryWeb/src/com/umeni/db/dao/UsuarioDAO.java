@@ -93,7 +93,7 @@ public class UsuarioDAO {
 			while( rs.next() ) {
 				
 				passwordFromDB = rs.getString( 1 );
-				System.out.println("Password from DB: " + passwordFromDB);
+				//System.out.println("Password from DB: " + passwordFromDB);
 				
 			}
 			con.close();

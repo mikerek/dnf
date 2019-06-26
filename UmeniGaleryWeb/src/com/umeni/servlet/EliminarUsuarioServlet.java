@@ -32,6 +32,8 @@ public class EliminarUsuarioServlet extends HttpServlet {
 		session.setAttribute("operacionUsuario", "Baja Usuario");
 		session.setAttribute( "listaUsuarios" , UsuarioController.getAllUsers() );
 		
+		System.out.println("Tenemos: " + usuarioEliminado);
+		
 		if( usuarioEliminado ) {
 			
 			nextPage = "/administracion/operacionUsuarioCorrecta.jsp";

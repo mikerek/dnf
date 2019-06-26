@@ -34,10 +34,10 @@
 			height="auto"> <br>
 		<h1 class="h3 mb-3 font-weight-normal">Login al sistema...</h1>
 		<label for="loginId" class="sr-only">Email</label> 
-		<input type="text" name="loginId" id="loginId" class="form-control" placeholder="Email"
+		<input type="text" name="loginId" id="loginId" class="form-control" placeholder="Email@usuario.com"
 			required autofocus> 
 		<label for="passwordUsuario" class="sr-only">Password</label> 
-		<input type="password" id="passwordUsuario" name="passwordUsuario" class="form-control" placeholder="Password"
+		<input type="password" id="passwordUsuario" name="passwordUsuario" class="form-control" placeholder="*******"
 			required>
 		<div class="checkbox mb-3">
 			<label> 
@@ -46,7 +46,7 @@
 			</label>
 		</div>
 		<button class="btn btn-lg btn-secondary btn-block" type="submit">Ingresar</button>
-		<p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+		<%@ include file="copyright.jsp" %>
 		<!-- 
 		<table align="center">
 			<tr>

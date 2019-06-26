@@ -5,13 +5,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<%@ include file="../metaData.jsp" %>
 	<script language="javascript" type="text/javascript" src="../js/ajaxFunctions.js"></script>
-<title>Bajas de Usuario</title>
+	<title>Bajas de Usuario</title>
 </head>
 <body onload="javascript:obtenerUsuarios();">
+	<%@ include file="../header.jsp" %>	
 	<%
-		UsuarioBean bean = (UsuarioBean) session.getAttribute("beanUsuario");
+		usuarioBean = (UsuarioBean) session.getAttribute("beanUsuario");
 		ArrayList< UsuarioBean > listaUsuarios = (ArrayList< UsuarioBean >) session.getAttribute( "listaUsuarios" );
 		int i;
 	%>
@@ -65,7 +66,7 @@
 					Rol:
 				</td>
 				<td>
-					<input type="text" name="rolUsuario" id="rolUsuario" readonly="readonly" /><%=bean.getId_Rol() %>
+					<input type="text" name="rolUsuario" id="rolUsuario" readonly="readonly" /><%=usuarioBean.getId_Rol() %>
 				</td>
 			</tr>
 			<tr>
@@ -86,6 +87,8 @@
 			</tr>
 		</table>
 	</form>
+	<%@ include file="../jQueryFooter.jsp"%>
 	<%@ include file="../regresarPagina.jsp" %>
+	<%@ include file="../copyright.jsp"%>
 </body>
 </html>

@@ -25,12 +25,18 @@ public static String menuGeneratorFromDB( String nombreUsuario ) {
 			ps = con.prepareStatement( query );
 			ps.setString( 1, nombreUsuario );
 			rs = ps.executeQuery();
+			menuFromDB += "<ul class=\"navbar-nav mr-auto\">";
+			
 			while ( rs.next() ) {
 				
-				menuFromDB += "<a href='" + rs.getString( "link" ) + "'>" + rs.getString( 1 ) + "</a>";
-				menuFromDB += "&nbsp; | &nbsp;";
+				menuFromDB += "<li class=\"nav-item\">";
+				menuFromDB += "<a class=\"nav-link\" href='" + rs.getString( "link" ) + "'>" + rs.getString( 1 ) + "</a>";
+				//menuFromDB += "&nbsp; | &nbsp;";
+				menuFromDB += "</li>";
 				
 			}
+			menuFromDB += "</ul>";
+			//System.out.println("Obtuvimos: " + menuFromDB);
 			con.close();
 			
 		}

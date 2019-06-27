@@ -12,7 +12,7 @@
 <meta name="generator" content="Jekyll v3.8.5">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<title>Login Page</title>
+<title>UMENI - Login Page</title>
 
 
 <script language="javascript" type="text/javascript"

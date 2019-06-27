@@ -4,7 +4,7 @@
 <html>
 <head>
 	<%@ include file="../metaData.jsp" %>	
-	<title>Cambios en el Usuario</title>
+	<title>UMENI - Cambios en el Usuario</title>
 </head>
 <body>
 	<%@ include file="../header.jsp" %>	

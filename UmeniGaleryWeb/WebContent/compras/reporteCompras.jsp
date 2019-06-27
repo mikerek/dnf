@@ -1,56 +1,72 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="com.umeni.db.bean.UsuarioBean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<%@ include file="../metaData.jsp" %>	
-	<script language="javascript" type="text/javascript" src="../js/ajaxFunctions.js"></script>
-	<title>Revisión de Compras - Umeni</title>
+	<%@ include file="../metaData.jsp" %>
+    <title>UMENI - Reporte de Compras</title> 
+	<script language="javascript" type="text/javascript" src="../js/validation.js"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
-	
-	<h1>Selecciona los filtros de búsqueda</h1>
-	<form action="ReporteCompletoServlet">
-		<input type="submit" value="TODAS las compras" />
-	</form>
-	<hr>
-	<form action="ReporteFiltradoComprasServlet">
-		<table>
-			<tr>
-				<td>
-					<label for="compraDesde">Fechas desde - hasta</label>
-				</td>
-				<td>
-					<input type="date" id="compraDesde" name="compraDesde" />
-				</td>
-				<td>
-					<input type="date" id="compraHasta" name="compraHasta" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="">Escribe el id del producto a filtrar</label>
-				</td>
-				<td colspan="2">
-					<input type="text" name="nombreProducto" id="nombreProducto" onchange="javascript:obtenerPinturaAjax( this.value )"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div id="notificationDivFather" style="display: none" align="center">
-					<div id="notificationDiv">
+	<%
+		usuarioBean = (UsuarioBean) session.getAttribute("beanUsuario");
+		ArrayList < RolBean > listRolBean = ( ArrayList< RolBean > ) session.getAttribute( "listBeanRol" );
+		if( usuarioBean.getNombre().equals( null ) || listRolBean.equals( null ) ) {
+			
+			out.print("Fuera perro!");
+			
+		}
+	%>
+
+	<h2 align="center">Selecciona los filtros de b�squeda</h2>
+	<br>
+	<section id="formasUsuario">
+		
+		<div class="container">
+			
+			<div class="row">
+				<div class="col col-md-4 mx-auto">
+				
+					<form action="../ReporteCompletoServlet">
+						<button type="submit" class="btn  btn-secondary btn-block">TODAS las compras</button>
+					</form>
+					
+				</div>
+			</div>
+			
+		</div>
+		<hr>
+		<div class="container">
+			
+			<form action="../ReporteFiltradoComprasServlet">
+				<div class="row">
+					<div class="col col-md-4 mx-auto">
+						<label for="compraDesde">Fechas Desde</label>
+						<input class="form-control" type="date" id="compraDesde" name="compraDesde">
+					</div>
+					
+					<div class="col col-md-4 mx-auto">
+						<label for="compraHasta">Fechas Hasta</label>
+						<input class="form-control" type="date" id="compraHasta" name="compraHasta">
+					</div>
+			
+					<div class="col col-md-4 mx-auto">
+						<label for="nombreProducto">Escribe el id del producto a filtrar</label>
+						<input  type="text" class="form-control" name="nombreProducto" id="nombreProducto" onchange="javascript:obtenerPinturaAjax( this.value )"/>
 					</div>
 				</div>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<input type="submit" value="Buscar"/>
-				</td>
-			</tr>
-		</table>
-	</form>
+				
+				<div class="row">
+					<div class="col col-md-4 mx-auto">
+						<button type="submit" class="btn btn-outline-info btn-block">Buscar filtrado</button>
+					</div>
+				</div>
+			</form>
+								
+		</div>
+		
+	</section>
+	<hr>
 	<%@ include file="../jQueryFooter.jsp"%>
 	<%@ include file="../regresarPagina.jsp" %>
 	<%@ include file="../copyright.jsp"%>

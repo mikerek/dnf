@@ -7,7 +7,7 @@
 <head>
 	<%@ include file="../metaData.jsp" %>
 	<script language="javascript" type="text/javascript" src="../js/ajaxFunctions.js"></script>
-	<title>Bajas de Usuario</title>
+	<title>UMENI - Bajas de Usuario</title>
 </head>
 <body onload="javascript:obtenerUsuarios();">
 	<%@ include file="../header.jsp" %>	

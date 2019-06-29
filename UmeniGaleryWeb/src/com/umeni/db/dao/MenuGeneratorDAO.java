@@ -26,6 +26,10 @@ public static String menuGeneratorFromDB( String nombreUsuario ) {
 			ps.setString( 1, nombreUsuario );
 			rs = ps.executeQuery();
 			menuFromDB += "<ul class=\"navbar-nav mr-auto\">";
+			menuFromDB += "<li class=\"nav-item\">";
+			menuFromDB += "<a class=\"nav-link\" href='/UmeniGaleryWeb/insideSystem.jsp'><i class=\"fa fa-home\" aria-hidden=\"true\"></i>Home</a>";
+			//menuFromDB += "&nbsp; | &nbsp;";
+			menuFromDB += "</li>";
 			
 			while ( rs.next() ) {
 				

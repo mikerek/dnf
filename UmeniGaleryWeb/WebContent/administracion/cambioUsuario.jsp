@@ -7,10 +7,7 @@
 	<%@ include file="../metaData.jsp" %>
 	<%@ include file="../jQueryFooter.jsp"%>
 	<title>Cambios en el Usuario</title>
-  
-
-
-</head>
+  </head>
 
 <body>
 	<%@ include file="../header.jsp" %>

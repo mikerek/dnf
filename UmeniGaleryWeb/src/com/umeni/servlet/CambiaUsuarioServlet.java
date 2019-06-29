@@ -71,10 +71,16 @@ public class CambiaUsuarioServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int idUsuario = Integer.parseInt(request.getParameter("nombreUsuario"));
-
 		UsuarioBean usuario = UsuarioController.getAllDataFromUserByIdUser(idUsuario);
 		System.out.println(usuario.getNombre());
 		session.setAttribute("usuario", usuario);
+		String returnData = "<div class= \"container \"> <form action= \"../CambiaUsuarioServlet \" method= \"post \" onsubmit= \"javascript:return validaNuevoUsuario(); \"> <div class= \"row \"> 	<div class= \"col col-md-4 mx-auto \"> <label for= \"nombreUsuario \">Nombre de Usuario</label> <input type= \"text \" class= \"form-control \" name= \"nombreUsuario \" id= \"nombreUsuario \" placeholder= \"Juan Perez \" value= \""
+				+ usuario.getNombre()
+				+ " \"> 	</div> </div>  <div class= \"row \"> 	<div class= \"col col-md-4 mx-auto \"> <button type= \"submit \" class= \"btn btn-outline-info btn-block \">Agregar usuario</button> 	</div> </div> </form> </div>";
+		response.setContentType("text/html"); // Set content type of the response so that jQuery knows what it can
+												// expect.
+		response.setCharacterEncoding("UTF-8"); // You want world domination, huh?
+		response.getWriter().write(returnData);
 
 	}
 

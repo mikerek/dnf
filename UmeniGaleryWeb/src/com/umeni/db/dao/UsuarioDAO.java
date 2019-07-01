@@ -21,7 +21,7 @@ public class UsuarioDAO {
 
 	public static UsuarioBean getDataFromUserByName(String nombre) {
 
-		String query = "SELECT id_usuario, nombre, password, id_rol FROM usuario WHERE email = ?";
+		String query = "SELECT id_usuario, nombre, email, password, id_rol FROM usuario WHERE email = ?";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Connection con = ConexBD.getConnection();
@@ -35,6 +35,7 @@ public class UsuarioDAO {
 
 				bean.setId_Usuario(rs.getInt("id_usuario"));
 				bean.setNombre(rs.getString("nombre"));
+				bean.setEmail( rs.getString( "email" ) );
 				bean.setPassword(rs.getString("password"));
 				bean.setId_Rol(rs.getInt("id_rol"));
 
@@ -52,7 +53,7 @@ public class UsuarioDAO {
 
 	public static UsuarioBean getDataFromUserByIdUser(int IdUser) {
 
-		String query = "SELECT id_usuario, nombre, password, id_rol FROM usuario WHERE id_usuario = ?";
+		String query = "SELECT id_usuario, nombre, email, password, id_rol FROM usuario WHERE id_usuario = ?";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Connection con = ConexBD.getConnection();
@@ -66,7 +67,8 @@ public class UsuarioDAO {
 
 				bean.setId_Usuario(rs.getInt("id_usuario"));
 				bean.setNombre(rs.getString("nombre"));
-				bean.setPassword(rs.getString("password"));
+				bean.setEmail( rs.getString( "email" ) );
+				bean.setPassword(rs.getString( "password" ));
 				bean.setId_Rol(rs.getInt("id_rol"));
 
 			}

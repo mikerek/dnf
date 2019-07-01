@@ -6,7 +6,7 @@
 <head>
 	<%@ include file="../metaData.jsp" %>
 	<%@ include file="../jQueryFooter.jsp"%>
-	<title>Cambios en el Usuario</title>
+	<title>UMENI - Cambios en el Usuario</title>
   </head>
 
 <body>
@@ -66,12 +66,13 @@
 		$('#nombreUsuario').change(function a(b) {
 			var str = b;
 			console.log(b);
+			var server = window.location.origin;
 			$('#nombreUsuario option:selected').each(function () {
 				var id =this.value;
 				$.ajax({
 					
 			        type: "GET",  
-			         url: "http://localhost:8080/UmeniGaleryWeb/CambiaUsuarioServlet?nombreUsuario="+id,
+			         url: server+"/UmeniGaleryWeb/CambiaUsuarioServlet?nombreUsuario="+id,
 			     timeout: 300000,
 			 contentType: "text/html; charset=utf-8",
 			     success: success,

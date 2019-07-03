@@ -69,49 +69,45 @@ public class CambiaUsuarioServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
-		int idUsuario = Integer.parseInt( request.getParameter( "nombreUsuario" ).trim() );
-		UsuarioBean usuario = UsuarioController.getAllDataFromUserByIdUser( idUsuario );
-		
-		String json = UsuarioController.getAllDataFromUserJSONById( idUsuario );
-		/*
-		System.out.println( "Generamos un Json: \n" + json );
-		
-		session.setAttribute( "usuario", usuario );
-		String returnData = "<div class= \"container \"> "
-				+ "<form action= \"../CambiaUsuarioServlet \" method= \"post \" onsubmit= \"javascript:return validaNuevoUsuario(); \"> "
-				+ "<div class= \"row \"> 	"
-				+ "<div class= \"col col-md-4 mx-auto \"> "
-				+ "<label for= \"nombreUsuario \">Nombre de Usuario</label> "
-				+ "<input type= \"text \" class= \"form-control \" name= \"nombreUsuario \" id= \"nombreUsuario \" value= \""+ usuario.getNombre()+ " \"> 	"
-				+ "</div> "
-				
-				+ "<div class= \"col col-md-4 mx-auto \"> "
-				+ "<label for= \"emailUsuario \">Email de Usuario</label> "
-				+ "<input type= \"email \" class= \"form-control \" name= \"emailUsuario \" id= \"emailUsuario \" value= \""+ usuario.getEmail() + " \"> 	"
-				+ "</div> "
-				
-				+ "<div class= \"col col-md-4 mx-auto \"> "
-				+ "<label for= \"passwordUsuario \">Password de Usuario</label> "
-				+ "<input type= \"password \" class= \"form-control \" name= \"passwordUsuario \" id= \"passwordUsuario \" value= \""+ usuario.getPassword() + " \"> 	"
-				+ "</div> "
 
-				+ "</div>  "
-				+ "<div class= \"row \"> 	"
-				+ "<div class= \"col col-md-4 mx-auto \"> "
-				+ "<button type= \"submit \" class= \"btn btn-outline-info btn-block \">Modificar usuario</button> 	"
-				+ "</div> "
-				+ "</div> "
-				+ "</form> "
-				+ "</div>";
-				*/
-		//response.setContentType( "text/html" ); // Set content type of the response so that jQuery knows what it can
-												// expect.
-		response.setContentType( "application/json" );
-		response.setCharacterEncoding( "UTF-8" ); // You want world domination, huh?
-		//response.getWriter().write( returnData );
-		response.getWriter().print( json );
+		HttpSession session = request.getSession();
+		int idUsuario = Integer.parseInt(request.getParameter("nombreUsuario").trim());
+		UsuarioBean usuario = UsuarioController.getAllDataFromUserByIdUser(idUsuario);
+
+		String json = UsuarioController.getAllDataFromUserJSONById(idUsuario);
+		/*
+		 * System.out.println( "Generamos un Json: \n" + json );
+		 * 
+		 * session.setAttribute( "usuario", usuario ); String returnData =
+		 * "<div class= \"container \"> " +
+		 * "<form action= \"../CambiaUsuarioServlet \" method= \"post \" onsubmit= \"javascript:return validaNuevoUsuario(); \"> "
+		 * + "<div class= \"row \"> 	" + "<div class= \"col col-md-4 mx-auto \"> " +
+		 * "<label for= \"nombreUsuario \">Nombre de Usuario</label> " +
+		 * "<input type= \"text \" class= \"form-control \" name= \"nombreUsuario \" id= \"nombreUsuario \" value= \""
+		 * + usuario.getNombre()+ " \"> 	" + "</div> "
+		 * 
+		 * + "<div class= \"col col-md-4 mx-auto \"> " +
+		 * "<label for= \"emailUsuario \">Email de Usuario</label> " +
+		 * "<input type= \"email \" class= \"form-control \" name= \"emailUsuario \" id= \"emailUsuario \" value= \""
+		 * + usuario.getEmail() + " \"> 	" + "</div> "
+		 * 
+		 * + "<div class= \"col col-md-4 mx-auto \"> " +
+		 * "<label for= \"passwordUsuario \">Password de Usuario</label> " +
+		 * "<input type= \"password \" class= \"form-control \" name= \"passwordUsuario \" id= \"passwordUsuario \" value= \""
+		 * + usuario.getPassword() + " \"> 	" + "</div> "
+		 * 
+		 * + "</div>  " + "<div class= \"row \"> 	" +
+		 * "<div class= \"col col-md-4 mx-auto \"> " +
+		 * "<button type= \"submit \" class= \"btn btn-outline-info btn-block \">Modificar usuario</button> 	"
+		 * + "</div> " + "</div> " + "</form> " + "</div>";
+		 */
+		// response.setContentType( "text/html" ); // Set content type of the response
+		// so that jQuery knows what it can
+		// expect.
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8"); // You want world domination, huh?
+		// response.getWriter().write( returnData );
+		response.getWriter().print(json);
 		response.getWriter().flush();
 
 	}

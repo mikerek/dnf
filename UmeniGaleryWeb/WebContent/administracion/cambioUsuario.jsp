@@ -31,7 +31,7 @@
 				<div class="row">
 					<div class="col col-md-4 mx-auto">
 						<label for="rolIdUsuario">Selecciona el usuario:</label>
-						<select id="nombreUsuario" name="nombreUsuario" class="form-control">
+						<select id="selectUsuario" name="nombreUsuario" class="form-control">
 							<%
 								for ( i=0; i< listaUsuarios.size() ; i++ ){
 								
@@ -48,33 +48,76 @@
 
 					</div>
 				</div>
-				<div id="replace"></div>
-
-				<div id="showsData" hidden></div>
-				<!--
-                <div class="row">
-                	<div class="col col-md-4 mx-auto">
-	            		<button type="submit" class="btn btn-outline-info btn-block"> Usuario</button>
-	            	</div>
-	            </div>
-	            -->
+			
 			</form>
 		</div>
-
+		<div class="container" id="formdata">
+		                <form action="../CambiaUsuarioServlet" method="post" onsubmit="javascript:return validaNuevoUsuario();">
+		                    <div class="row">
+		                        <div class="col col-md-4 mx-auto">
+		                            <label for="nombreUsuario">Nombre de Usuario</label>
+		                            <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario"
+		                                placeholder="Juan Perez">
+		                        </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="col col-md-4 mx-auto">
+		                            <label for="emailUsuario">Email del nuevo Usuario</label>
+		                            <input type="email" class="form-control" name="emailUsuario" id="emailUsuario"
+		                                placeholder="micorreo@gmail.com">
+		                        </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="col col-md-4 mx-auto">
+		                            <label for="passwordUsuario">Password</label>
+		                            <input type="password" class="form-control" name="passwordUsuario" id="passwordUsuario"
+		                                placeholder="123qweASD">
+		                        </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="col col-md-4 mx-auto">
+		                            <label for="rolIdUsuario">Rol de Usuario</label>
+		                            <select id="rolIdUsuario" name="rolIdUsuario" class="form-control">
+		                                <option value="0">- selecciona -</option>
+		                                <% 
+									for ( i=0; i< listRolBean.size() ; i++ ){
+										
+										int id_rol = listRolBean.get( i ).getId_rol();
+										String nombreRol = listRolBean.get( i ).getNombre(); 
+									%>
+		                                <option value="<%= id_rol %>"><%= nombreRol %></option>
+		                                <% } %>
+		                            </select>
+		                        </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="col col-md-4 mx-auto">
+		                            <button type="submit" class="btn btn-outline-info btn-block">Agregar usuario</button>
+		                        </div>
+		                    </div>
+		                </form>
+		            </div>
 	</section>
 	<script type="text/javascript">
-		$('#nombreUsuario').change(function a(b) {
+	$( document ).ready(function() {
+		$('#formdata').hide();
+
+	});
+		$('#selectUsuario').change(function a(b) {
 			var str = b;
 			console.log(b);
-			var server = window.location.origin;
-			$('#nombreUsuario option:selected').each(function () {
+			var host = window.location.origin;
+			var url =  host+"/UmeniGaleryWeb/CambiaUsuarioServlet?nombreUsuario=";
+			console.log(url);
+			$('#selectUsuario option:selected').each(function () {
+				$('#formdata').hide();
 				var id =this.value;
 				$.ajax({
 					
 			        type: "GET",  
-			         url: server+"/UmeniGaleryWeb/CambiaUsuarioServlet?nombreUsuario="+id,
+			         url: host+"/UmeniGaleryWeb/CambiaUsuarioServlet?nombreUsuario="+id,
 			     timeout: 300000,
-			 contentType: "text/html; charset=utf-8",
+			 contentType: "application/json; charset=utf-8",
 			     success: success,
 			       error: failure
 			});
@@ -83,7 +126,15 @@
 			    alert(response);
 			}
 			function success(response) {
-				$('#replace').html(response);
+
+				$('#nombreUsuario').val(response.nombre);
+				$('#emailUsuario').val(response.email );
+				$('#passwordUsuario').val( response.password );
+				$('#rolIdUsuario').val( response.id_rol ).change();
+				$('#formdata').show();
+				
+				
+				
 			}
 		
 			});

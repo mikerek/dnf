@@ -35,7 +35,7 @@ public class UsuarioDAO {
 
 				bean.setId_Usuario(rs.getInt("id_usuario"));
 				bean.setNombre(rs.getString("nombre"));
-				bean.setEmail( rs.getString( "email" ) );
+				bean.setEmail(rs.getString("email"));
 				bean.setPassword(rs.getString("password"));
 				bean.setId_Rol(rs.getInt("id_rol"));
 
@@ -67,8 +67,8 @@ public class UsuarioDAO {
 
 				bean.setId_Usuario(rs.getInt("id_usuario"));
 				bean.setNombre(rs.getString("nombre"));
-				bean.setEmail( rs.getString( "email" ) );
-				bean.setPassword(rs.getString( "password" ));
+				bean.setEmail(rs.getString("email"));
+				bean.setPassword(rs.getString("password"));
 				bean.setId_Rol(rs.getInt("id_rol"));
 
 			}
@@ -226,6 +226,7 @@ public class UsuarioDAO {
 			ps.setString(2, HashEncryption.md5Java(bean.getPassword()));
 			ps.setString(3, bean.getEmail());
 			ps.setInt(4, bean.getId_Rol());
+			ps.setInt(5, bean.getId_Usuario());
 			updateFlag = (ps.executeUpdate() == 1) ? true : false;
 
 			con.close();

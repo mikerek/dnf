@@ -2,6 +2,7 @@ package com.umeni.controller;
 
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
 import com.umeni.db.bean.UsuarioBean;
 import com.umeni.db.dao.UsuarioDAO;
 
@@ -9,17 +10,22 @@ public class UsuarioController {
 
 	public UsuarioBean getAllDataFromUserByName(String nombreUsuario) {
 
+		return UsuarioDAO.getDataFromUserByName(nombreUsuario);
+
+	}
+	
+	public static String getAllDataFromUserJSONById( int idUserName ) {
+
+		Gson gsonObject = new Gson();
 		UsuarioBean bean = new UsuarioBean();
-		UsuarioDAO dao = new UsuarioDAO();
-		return bean = dao.getDataFromUserByName(nombreUsuario);
+		bean = UsuarioDAO.getDataFromUserByIdUser( idUserName );
+		return gsonObject.toJson( bean );
 
 	}
 
 	public static UsuarioBean getAllDataFromUserByIdUser(int idUserName) {
 
-		UsuarioBean bean = new UsuarioBean();
-		UsuarioDAO dao = new UsuarioDAO();
-		return bean = dao.getDataFromUserByIdUser(idUserName);
+		return UsuarioDAO.getDataFromUserByIdUser(idUserName);
 
 	}
 

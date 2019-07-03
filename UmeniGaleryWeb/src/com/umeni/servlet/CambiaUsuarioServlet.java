@@ -73,6 +73,11 @@ public class CambiaUsuarioServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int idUsuario = Integer.parseInt( request.getParameter( "nombreUsuario" ).trim() );
 		UsuarioBean usuario = UsuarioController.getAllDataFromUserByIdUser( idUsuario );
+		
+		String json = UsuarioController.getAllDataFromUserJSONById( idUsuario );
+		/*
+		System.out.println( "Generamos un Json: \n" + json );
+		
 		session.setAttribute( "usuario", usuario );
 		String returnData = "<div class= \"container \"> "
 				+ "<form action= \"../CambiaUsuarioServlet \" method= \"post \" onsubmit= \"javascript:return validaNuevoUsuario(); \"> "
@@ -100,10 +105,14 @@ public class CambiaUsuarioServlet extends HttpServlet {
 				+ "</div> "
 				+ "</form> "
 				+ "</div>";
-		response.setContentType( "text/html" ); // Set content type of the response so that jQuery knows what it can
+				*/
+		//response.setContentType( "text/html" ); // Set content type of the response so that jQuery knows what it can
 												// expect.
+		response.setContentType( "application/json" );
 		response.setCharacterEncoding( "UTF-8" ); // You want world domination, huh?
-		response.getWriter().write( returnData );
+		//response.getWriter().write( returnData );
+		response.getWriter().print( json );
+		response.getWriter().flush();
 
 	}
 

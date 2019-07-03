@@ -1,3 +1,4 @@
+<%@page import="com.umeni.db.bean.TipoClienteBean"%>
 <%@page import="com.umeni.db.bean.RolBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.umeni.db.bean.UsuarioBean"%>

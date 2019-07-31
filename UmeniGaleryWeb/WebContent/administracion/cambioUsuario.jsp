@@ -76,15 +76,14 @@
 		                    <div class="row">
 		                        <div class="col col-md-4 mx-auto">
 		                            <label for="passwordUsuario">Password</label>
-		                            <input type="password" class="form-control" name="passwordUsuario" id="passwordUsuario"
-		                                placeholder="123qweASD">
+		                            <input type="password" class="form-control" name="passwordUsuario" id="passwordUsuario" placeholder="123qweASD" readonly="readonly">
 		                        </div>
 		                    </div>
 		                    <div class="row">
 		                        <div class="col col-md-4 mx-auto">
 		                            <label for="rolIdUsuario">Rol de Usuario</label>
 		                            <select id="rolIdUsuario" name="idRol" class="form-control">
-		                                <option value="0">- selecciona -</option>
+		                                <option value="0">- Selecciona -</option>
 		                                <% 
 									for ( i=0; i< listRolBean.size() ; i++ ){
 										

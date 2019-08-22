@@ -1,3 +1,4 @@
+<%@page import="com.umeni.db.bean.ArticuloBean"%>
 <%@page import="java.util.Date"%>
 <%@page import="com.umeni.db.bean.UsuarioBean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,6 +12,7 @@
 	<%@ include file="../header.jsp" %>
 	<%
 		usuarioBean = (UsuarioBean) session.getAttribute("beanUsuario");
+		ArrayList< ArticuloBean > listaArticulos = (ArrayList< ArticuloBean >) session.getAttribute( "listaArticulos" );
 		ArrayList < RolBean > listRolBean = ( ArrayList< RolBean > ) session.getAttribute( "listBeanRol" );
 		if( usuarioBean.getNombre().equals( null ) || listRolBean.equals( null ) ) {
 			
@@ -25,7 +27,28 @@
 		<div class="container">
 			
 			<form action="../RealizarCompraServlet">
-			
+				<div class="row">
+					<div class="col col-md-4 mx-auto">
+						<label for="compra">Articulo:</label>	                    
+	                    <select id="articuloCompra" name="articuloCompra" class="form-control">
+							<%
+								for ( int i=0; i< listaArticulos.size() ; i++ ){
+								
+									int idArticulo = listaArticulos.get(i).getId_articulo();
+									String descripcion = listaArticulos.get(i).getDescripcion();									
+								
+								%>
+							<option value="<%=idArticulo%>"><%=descripcion%></option>
+							<%
+								}
+							%>
+						</select>
+					</div>
+					<div class="col col-md-4 mx-auto">
+						<label for="compra">Cantidad:</label>
+	                    <input type="text" class="form-control" name="cantidad" id="cantidad" placeholder="XYZ">
+					</div>
+				</div>
 				<div class="row">
 	                <div class="col col-md-4 mx-auto">
 	                    <label for="compra">Costo de la compra:</label>

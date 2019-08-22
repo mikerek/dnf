@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.umeni.controller.ArticuloController;
 import com.umeni.controller.LoginController;
 import com.umeni.controller.PinturaController;
 import com.umeni.controller.RolController;
@@ -36,6 +37,7 @@ public class ValidaUsuarioServlet extends HttpServlet {
 					session.setAttribute( "listBeanRol", RolController.getAllRoles() );
 					session.setAttribute( "menu" , LoginController.menuGenerator( loginId ) );
 					session.setAttribute( "listaUsuarios" , UsuarioController.getAllUsers() );
+					session.setAttribute( "listaArticulos", ArticuloController.obtenerTodosLasArticulos() );
 					nextPage = "/insideSystem.jsp";
 					
 				}

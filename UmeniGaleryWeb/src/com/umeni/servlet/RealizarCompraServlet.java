@@ -22,7 +22,9 @@ public class RealizarCompraServlet extends HttpServlet {
 		String costoCompra = request.getParameter("compra");
 		String comentarios = request.getParameter("comentarios");
 		String idUsuario = request.getParameter("id_usuario");
+		String idArticulo = request.getParameter( "articuloCompra" );
 		String fecha = request.getParameter("fecha");
+		String cantidad = request.getParameter( "cantidad" );
 		
 		CompraBean compraBean = new CompraBean();
 		//compraBean.setCompra( Float.parseFloat( costoCompra ) );

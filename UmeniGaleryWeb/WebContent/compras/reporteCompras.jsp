@@ -7,7 +7,6 @@
     <title>UMENI - Reporte de Compras</title> 
 	<script language="javascript" type="text/javascript" src="../js/validation.js"></script>
 	<script language="javascript" type="text/javascript" src="../js/jsontables.js"></script>
-	<script language="javascript" type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
@@ -79,6 +78,9 @@
 		                <th data-field="detalles_compra">Details</th>
 		            </tr>
 		        </thead>
+		        <tbody>
+		        
+		        </tbody>
 		    </table>
 	    </div>
 		
@@ -113,11 +115,14 @@
 			}
 			function success( response ) {
 				
-				//var jsonTable = new JSONTable();
-				//var tableData = jsonTable.toJSON();
+				//var jsonTable = new JSONTable("#dataTable");
+				//var tableData = jsonTable.toJSON();tableData.push( response );
+				
 				//tableData.push = response; 
 				//jsonTable.fromJSON( tableData );
+				
 				$( '#dataTable' ).DataTable();
+				$( '#dataTable' ).show();
 				
 			}
 		

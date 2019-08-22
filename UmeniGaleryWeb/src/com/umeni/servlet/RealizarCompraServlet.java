@@ -25,14 +25,14 @@ public class RealizarCompraServlet extends HttpServlet {
 		String fecha = request.getParameter("fecha");
 		
 		CompraBean compraBean = new CompraBean();
-		compraBean.setCompra( Float.parseFloat( costoCompra ) );
-		compraBean.setComentarios( comentarios );
+		//compraBean.setCompra( Float.parseFloat( costoCompra ) );
+		//compraBean.setComentarios( comentarios );
 		compraBean.setId_usuario( Integer.parseInt( idUsuario ) );
-		compraBean.setFecha( fecha );
+		//compraBean.setFecha( fecha );
 		
-		boolean compraRealizada = CompraController.registrarCompra( compraBean );
+		//boolean compraRealizada = CompraController.registrarCompra( compraBean );
 		String nextPage = "";
-		
+		/*
 		if( compraRealizada ) {
 			
 			nextPage = "/compras/compraRegistrada.jsp";
@@ -41,7 +41,7 @@ public class RealizarCompraServlet extends HttpServlet {
 		else {
 			nextPage = "/compras/errorEnCompra.jsp";
 		}
-		
+		*/
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher( nextPage );
 		dispatcher.forward( request, response);
 		

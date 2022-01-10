@@ -14,7 +14,7 @@
     <meta name="generator" content="Jekyll v3.8.5">
     
     
-    <title>Bienvenido a DNF!</title>
+    <title>Bienvenido a DNF Barbería!</title>
     
  	<link rel="stylesheet" type="text/css" href="css/estilos.css">
  	<link rel="stylesheet" type="text/css" href="css/inside.css" >
@@ -51,7 +51,7 @@
 				* Revisa las opcines del menú superior de acuerdo a los permisos de tu usuario *
 				<br>
 				<br>
-				<img alt="DNF Barbería" src="img/dnflogo.jpeg" width="530" height="400">
+				<img alt="DNF Barbería" src="img/dnflogo.jpeg" width="380" height="350" class="img-fluid rounded-pill">
 			</p>
 		</div>
 	</section>

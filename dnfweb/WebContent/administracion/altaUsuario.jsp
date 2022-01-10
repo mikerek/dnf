@@ -15,11 +15,7 @@
 	<%
 		usuarioBean = (UsuarioBean) session.getAttribute("beanUsuario");
 		ArrayList < RolBean > listRolBean = ( ArrayList< RolBean > ) session.getAttribute( "listBeanRol" );
-		if( usuarioBean.getNombre().equals( null ) || listRolBean.equals( null ) ) {
-			
-			out.print("Fuera perro!");
-			
-		}
+		
 	%>
 	
 	<h2 align="center">Llena los campos del usuario nuevo del sistema</h2>

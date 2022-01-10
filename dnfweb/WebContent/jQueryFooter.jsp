@@ -13,4 +13,4 @@
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
 	
-<script language="javascript" type="text/javascript" src="/UmeniGaleryWeb/js/dataTables-min.js"></script>
+<script language="javascript" type="text/javascript" src="/dnfweb/js/dataTables-min.js"></script>

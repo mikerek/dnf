@@ -37,7 +37,6 @@ public class CambiaUsuarioServlet extends HttpServlet {
 		String nextPage = "../login.jsp";
 		HttpSession session = request.getSession();
 		int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
-		System.out.println("Tenemos: " + request.getParameter("idUsuario"));
 		String nombreUsuario = request.getParameter("nombreUsuario");
 		String emailUsuario = request.getParameter("emailUsuario");
 		String passwordUsuario = request.getParameter("passwordUsuario");
@@ -53,7 +52,6 @@ public class CambiaUsuarioServlet extends HttpServlet {
 		boolean cambioUsuario = false;
 		cambioUsuario = UsuarioController.changeUser(userBean);
 
-		System.out.println("Tenemos: " + cambioUsuario);
 
 		if (cambioUsuario) {
 

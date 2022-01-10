@@ -1,11 +1,17 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dnf.db.bean.RolBean"%>
 <%@page import="com.dnf.db.bean.UsuarioBean"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+
 	<%
 		UsuarioBean usuarioBean = (UsuarioBean) session.getAttribute( "beanUsuario" );
-		String menu = (String) session.getAttribute( "menu" );
+		if( usuarioBean == null ) {
+	%>
+		<jsp:forward page="/sesionInvalida.html"></jsp:forward>		
+	<%		
+		}
+		else {
+		
+			String menu = (String) session.getAttribute( "menu" );
 	%>
 	<nav class="navbar navbar-dark bg-dark">
 	 	<a class="navbar-brand" href="#">Menu de Opciones</a>
@@ -26,3 +32,4 @@
 		<br>
 		Hoy es: <%= new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date()) %>
 	</p>
+	<% } %>

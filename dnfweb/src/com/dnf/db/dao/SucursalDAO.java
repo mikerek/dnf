@@ -6,16 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.dnf.db.bean.ClienteBean;
+import com.dnf.db.bean.SucursalBean;
 import com.dnf.db.connection.ConexBD;
 
-
-public class ClienteDAO {
+public class SucursalDAO {
 	
-	public static ArrayList< ClienteBean > obtenerTodosLosClientes() {
+	public static ArrayList< SucursalBean > obtenerTodasLasSucursales() {
 		
-		ArrayList< ClienteBean > lista = new ArrayList<ClienteBean>();
-		String query = "SELECT id_cliente, nombre, rfc, telefono2, telefono, email, id_cita, direccion, id_tipo_cliente FROM cliente";
+		ArrayList< SucursalBean > lista = new ArrayList<SucursalBean>();
+		String query = "SELECT id_sucursal, direccion, telefono, horario, id_cita FROM sucursal";
 		PreparedStatement ps = null;
 		Connection con = ConexBD.getConnection();
 		ResultSet rs = null;
@@ -25,16 +24,12 @@ public class ClienteDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 
-				ClienteBean bean = new ClienteBean();
-				bean.setIdCliente( rs.getInt( "id_cliente" ) );
-				bean.setNombre( rs.getString( "nombre" ) );
-				bean.setRfc( rs.getString( "rfc" ) );
-				bean.setTelefono2( rs.getString( "telefono2" ) );
+				SucursalBean bean = new SucursalBean();
+				bean.setIdSucursal( rs.getInt( "id_sucursal" ) );
+				bean.setDireccion( rs.getString( "direccion" ));
 				bean.setTelefono( rs.getString( "telefono" ) );
-				bean.setEmail( rs.getString( "email" ) );
-				bean.setIdCita( rs.getInt( "id_cita" ) );
-				bean.setDireccion( rs.getString( "direccion" ) );
-				bean.setIdTipoCliente( rs.getInt("id_tipo_cliente") );
+				bean.setHorario( rs.getString( "horario" ));
+				bean.setIdCita( rs.getInt("id_cita") );
 
 				lista.add(bean);
 
@@ -50,6 +45,10 @@ public class ClienteDAO {
 		
 	}
 	
+	/*
+	 *  Ya que solo tenemos una sucursal de momento, nos quedamos con estos metodos pendientes de implementar
+	 */
+	/*
 	public static ClienteBean obtenerCliente( int idCliente ) {
 		
 		ClienteBean bean = new ClienteBean();
@@ -123,8 +122,9 @@ public class ClienteDAO {
 		return lista;
 		
 	}
+
 	
-	public static boolean crearNuevoClienteBD(ClienteBean bean) {
+	public static boolean createNewUserInDB(ClienteBean bean) {
 
 		boolean insertionFlag = false;
 		String query = "INSERT INTO cliente ( nombre, rfc, persona, telefono, email, id_cita, direccion, id_tipo_cliente, condiciones) values (?,?,?,?,?,?,?,?,?) ";
@@ -176,5 +176,6 @@ public class ClienteDAO {
 		return insertionFlag;
 
 	}
+	*/
 
 }

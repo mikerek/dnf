@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dnf.controller.ArticuloController;
+import com.dnf.controller.ClienteController;
 import com.dnf.controller.LoginController;
 import com.dnf.controller.PinturaController;
 import com.dnf.controller.RolController;
+import com.dnf.controller.SucursalController;
 import com.dnf.controller.UsuarioController;
 
 
@@ -22,6 +24,7 @@ public class ValidaUsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String loginId = request.getParameter( "loginId" );
 		String passwd = request.getParameter( "passwordUsuario" );
 		HttpSession session = request.getSession( );
@@ -37,7 +40,9 @@ public class ValidaUsuarioServlet extends HttpServlet {
 					session.setAttribute( "listBeanRol", RolController.getAllRoles() );
 					session.setAttribute( "menu" , LoginController.menuGenerator( loginId ) );
 					session.setAttribute( "listaUsuarios" , UsuarioController.getAllUsers() );
-					session.setAttribute( "listaArticulos", ArticuloController.obtenerTodosLasArticulos() );
+					session.setAttribute( "listaClientes", ClienteController.obtenerTodosLosCliente() );
+					//session.setAttribute( "listaSucursales", SucursalController.obtenerTodasLasSucursales() );
+					
 					nextPage = "/insideSystem.jsp";
 					
 				}

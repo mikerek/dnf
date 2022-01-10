@@ -70,3 +70,14 @@ hr.inputForm {
   border-style: inset;
   border-width: 1px;
 }
+
+
+#logout .fa {
+	color: black;
+	padding: 10px;
+}
+
+#logout .logout {
+	color: red;
+	font-family: 'Roboto Mono', monospace;
+}

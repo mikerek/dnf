@@ -21,7 +21,7 @@
 		}
 	%>
 
-	<h2 align="center">Favor de llenar los detalles de la compra realizada</h2>
+	<h2 align="center">Favor de llenar los datos del cliente para su cita</h2>
 	<br>
 	<section id="formasUsuario">
 		<div class="container">
@@ -29,7 +29,7 @@
 			<form action="../RealizarCompraServlet">
 				<div class="row">
 					<div class="col col-md-4 mx-auto">
-						<label for="compra">Articulo:</label>	                    
+						<label for="compra">Cliente:</label>	                    
 	                    <select id="articuloCompra" name="articuloCompra" class="form-control">
 							<%
 								for ( int i=0; i< listaArticulos.size() ; i++ ){
@@ -45,38 +45,56 @@
 						</select>
 					</div>
 					<div class="col col-md-4 mx-auto">
-						<label for="compra">Cantidad:</label>
+						<label for="compra">Fecha:</label>
 	                    <input type="text" class="form-control" name="cantidad" id="cantidad" placeholder="XYZ">
 					</div>
 				</div>
 				<div class="row">
 	                <div class="col col-md-4 mx-auto">
-	                    <label for="compra">Costo de la compra:</label>
+	                    <label for="compra">Hora:</label>
 	                    <input type="text" class="form-control" name="compra" id="compra" placeholder="$$$$$$">
 	                </div>
                 
 	                <div class="col col-md-4 mx-auto">
-	                    <label for="comentarios">Comentarios Generarles:</label>
+	                    <label for="comentarios">Tipo de Servicio:</label>
+	                    <select id="articuloCompra" name="articuloCompra" class="form-control">
+							<%
+								for ( int i=0; i< listaArticulos.size() ; i++ ){
+								
+									int idArticulo = listaArticulos.get(i).getId_articulo();
+									String descripcion = listaArticulos.get(i).getDescripcion();									
+								
+								%>
+							<option value="<%=idArticulo%>"><%=descripcion%></option>
+							<%
+								}
+							%>
+						</select>
+	                </div>
+                </div>
+                <div class="row">
+                	<div class="col col-md-4 mx-auto">
+	                    <label for="comentarios">Comentarios:</label>
 	                    <textarea class="md-textarea form-control" rows="3" name="comentarios" id="comentarios" placeholder="Detalles de la compra"></textarea>
 	                </div>
                 </div>
                 
                 <div class="row">
 	                <div class="col col-md-4 mx-auto">
-	                    <label for="id_usuario">Usuario Comprador:</label>
+	                    <label for="id_usuario">Usuario:</label>
 	                    <label><b><%=usuarioBean.getNombre() %></b></label>
 	                    <input type="hidden" class="form-control" name="id_usuario" id="id_usuario" value="<%=usuarioBean.getId_Usuario() %>">
 	                </div>
 
 	                <div class="col col-md-4 mx-auto">
-	                    <label for="fecha">Fecha de registro de compra:</label>
+	                    <label for="fecha">Fecha de registro de cita:</label>
 	                    <input type="text" class="form-control" name="fecha" id="fecha" value="<%=new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date()) %>" disabled="disabled">
 	                </div>
                 </div>
                 
                 <div class="row">
                 	<div class="col col-md-4 mx-auto">
-	            		<button type="submit" class="btn btn-secondary btn-block">Registrar Compra</button>
+	            		<button type="submit" class="btn btn-secondary btn-block">Registrar Cita</button>
 	            	</div>
 	            </div>
                 

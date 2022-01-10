@@ -5,15 +5,34 @@ public class ClienteBean {
 	private int idCliente;
 	private String nombre;
 	private String rfc;
-	private String persona;
+	private String telefono2;
 	private String telefono;
 	private String email;
-	private String cargo;
+	private int idCita;
 	private String direccion;
 	private int idTipoCliente;
-	private String condiciones;
 	
 	
+	public String getTelefono2() {
+		return telefono2;
+	}
+
+
+	public void setTelefono2(String telefono2) {
+		this.telefono2 = telefono2;
+	}
+
+
+	public int getIdCita() {
+		return idCita;
+	}
+
+
+	public void setIdCita(int idCita) {
+		this.idCita = idCita;
+	}
+
+
 	public ClienteBean() {
 		super();
 	}
@@ -49,16 +68,6 @@ public class ClienteBean {
 	}
 
 
-	public String getPersona() {
-		return persona;
-	}
-
-
-	public void setPersona(String persona) {
-		this.persona = persona;
-	}
-
-
 	public String getTelefono() {
 		return telefono;
 	}
@@ -78,17 +87,6 @@ public class ClienteBean {
 		this.email = email;
 	}
 
-
-	public String getCargo() {
-		return cargo;
-	}
-
-
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
-	}
-
-
 	public String getDireccion() {
 		return direccion;
 	}
@@ -107,18 +105,6 @@ public class ClienteBean {
 	public void setIdTipoCliente(int idTipoCliente) {
 		this.idTipoCliente = idTipoCliente;
 	}
-
-
-	public String getCondiciones() {
-		return condiciones;
-	}
-
-
-	public void setCondiciones(String condiciones) {
-		this.condiciones = condiciones;
-	}
-	
-	
 	
 
 }
